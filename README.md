@@ -1,6 +1,8 @@
 # zmcg - Zero Multi Config Git
 
-**A beginner-friendly tool for managing multiple Git accounts with SSH keys**
+## Overview
+
+A beginner-friendly tool for managing multiple Git accounts with SSH keys
 
 ## What is zmcg?
 
@@ -9,6 +11,7 @@
 ## Problem It Solves
 
 Setting up multiple Git accounts usually requires:
+
 - Manually generating SSH keys
 - Manually editing `~/.ssh/config`
 - Manually switching Git configuration between repositories
@@ -24,6 +27,7 @@ zmcg create
 ```
 
 Answer the questions:
+
 - Profile name? (e.g., `work`, `personal`)
 - Your name? (e.g., `John Doe`)
 - Your email? (e.g., `john@company.com`)
@@ -93,12 +97,13 @@ zmcg switch personal
 
 ```bash
 git clone https://github.com/yourusername/zmcg.git
-cd zmcg
+cd zmcg/src
 chmod +x install.sh
 sudo ./install.sh
 ```
 
 Then use it anywhere:
+
 ```bash
 zmcg create
 ```
@@ -107,7 +112,7 @@ zmcg create
 
 ```bash
 git clone https://github.com/yourusername/zmcg.git
-cd zmcg
+cd zmcg/src
 ./zmcg create  # Run from directory
 ```
 
@@ -139,15 +144,18 @@ A: Yes! Just run `zmcg create` again.
 
 **Q: How do I delete a profile?**
 A: Delete these files:
+
 ```bash
 rm ~/.ssh/id_rsa_<profile_name>
 rm ~/.ssh/id_rsa_<profile_name>.pub
 rm ~/.ssh/.zmcg-<profile_name>
 ```
+
 Then manually remove the Host entry from `~/.ssh/config`.
 
 **Q: How do I verify the setup?**
 A: After adding the public key to your Git platform:
+
 ```bash
 ssh -T git@work     # Should show success message
 ```
@@ -162,6 +170,7 @@ ssh -T git@work     # Should show success message
 ## Support
 
 If you have issues:
+
 1. Check that Git is installed: `git --version`
 2. Check that SSH works: `ssh -T git@github.com`
 3. Make sure you added the public key to your Git platform
